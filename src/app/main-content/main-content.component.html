@@ -4,7 +4,7 @@
         <!-- <button type="button" class="btn btn-primary">Primary</button>
         <button type="button" class="btn btn-secondary">Secondary</button>
         <button type="button" class="btn btn-success">Success</button> -->
-        <button type="button" class="btn btn-danger">Danger</button>
+        <!-- <button type="button" class="btn btn-danger">Danger</button> -->
         <!-- <button type="button" class="btn btn-warning">Warning</button>
         <button type="button" class="btn btn-info">Info</button>
         <button type="button" class="btn btn-light">Light</button>
@@ -18,8 +18,12 @@
                     <th scope="col">Courses</th>
                     <th>
                         <div class="btn-group pull-right">
-                    <td><button type="button" class="btn btn-success"(click)="saveStudent()">Save</button></td>
-                    <td><button type="button" class="btn btn-info" [disabled]="disableAddButton" (click)="addStudent()">Add</button></td>
+                    <td><button type="button" mat-raised-button color="accent"(click)="saveStudent()">
+                        <mat-icon>save</mat-icon>
+                    </button></td>
+                    <td><button type="button" mat-raised-button color="warn" [disabled]="disableAddButton" (click)="addStudent()">
+                        <mat-icon>create</mat-icon>
+                    </button></td>
     </div>
     </th>
     </tr>
@@ -44,7 +48,11 @@
                 <input [(ngModel)]="student.course" type="text" class="form-control" placeholder="Course">
             </td>
 
-            <td><button type="button" class="btn btn-danger pull-right" (click)="removeStudent(i)">X</button></td>
+            <td>
+                <button type="button" class="pull-right" mat-raised-button color="warn" (click)="removeStudent(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
         </tr>
 
     </tbody>

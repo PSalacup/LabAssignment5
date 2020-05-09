@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'main-header',
+  selector: 'app-main-header',
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.css']
 })
 export class MainHeaderComponent implements OnInit {
 
-  private firstName: string;
-  private lastName: string;
+  firstName = 'Paul';
+  lastName = 'Salacup';
+  greeting = 'r1c2';
 
-  constructor() {
-    this.firstName = 'Paul';
-    this.lastName = 'Salacup';
-  }
+  construtor(
+    private Router: Router
+  ) { }
 
+  ngOnInit() {
+}
 
-  showGreeting() {
-    const banner = document.getElementById('banner');
-    banner.innerHTML = 'Hello ' + this.firstName + ' ' + this.lastName + '.';
-  }
+showGreeting() {
+  const banner = document.getElementById('banner');
+  banner.innerHTML = 'Hello ' + this.firstName + ' ' + this.lastName + '.';
+}
 
-  hideGreeting() {
-    const banner = document.getElementById('banner');
-    banner.innerHTML = 'r1c2';
-  }
+hideGreeting() {
+  const banner = document.getElementById('banner');
+  banner.innerHTML = 'r1c2';
+}
 
-  ngOnInit(): void {
-  }
+navigateTo(path: string) {
+  this.Router.navigate(['courses']);
+}
 
 }
